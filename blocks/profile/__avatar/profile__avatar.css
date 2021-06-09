@@ -1,0 +1,22 @@
+
+.profile__avatar {
+    width: 120px;
+    height: 120px;
+    margin-right: 30px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .profile__avatar {
+      margin-right: 2.9296875vw;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    .profile__avatar {
+      margin: 0 0 27px;
+    }
+  }
+  

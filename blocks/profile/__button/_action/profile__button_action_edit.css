@@ -1,0 +1,29 @@
+
+.profile__button_action_edit {
+  
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 19px;
+    vertical-align: middle;
+    background-image: url('../../../../images/icons/edit_icon.svg');
+    border: 1px solid #FFF;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .profile__button_action_edit {
+      width: 20px;
+      height: 20px;
+      margin-left: 1.85546875vw;
+    }
+  }
+  
+  @media screen and (max-width: 425px) {
+    .profile__button_action_edit{
+      width: 18px;
+      height: 18px;
+      margin-left: 10px;
+      margin-right: auto;
+      background-size: 7.5px 7.5px;
+    }
+  }
+  

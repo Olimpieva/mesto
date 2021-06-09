@@ -7,4 +7,12 @@
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 
-
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/content/__profile/content__profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__info-name/profile__info-name.css);
+@import url(../blocks/profile/__info-about/profile__info-about.css);
+@import url(../blocks/profile/__button/profile__button.css);
+@import url(../blocks/profile/__button/_action/profile__button_action_edit.css);
+@import url(../blocks/profile/__button/_action/profile__button_action_add.css);

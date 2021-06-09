@@ -1,0 +1,27 @@
+
+.profile__info-name {
+    margin: 0 0 8px;
+    padding: 0;
+    font-size: 42px;
+    line-height: 48px;
+    font-weight: 500;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .profile__info-name {
+      font-size: 4.1015625vw;
+      line-height: 4.6875vw;
+    }
+  }
+  
+  @media screen and (max-width: 425px) {
+    .profile__info-name {
+      margin-bottom: 7px;
+      margin-left: 26px;
+      text-align: center;
+      font-size: 8.4375vw;
+      line-height: calc(32.68/27);
+      
+    }
+  }
+
