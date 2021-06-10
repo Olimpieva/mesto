@@ -1,0 +1,11 @@
+
+.card__like_status_disabled {
+    width: 22px;
+    height: 19px;
+    margin: 0;
+    background-image: url(../../../../images/icons/like-disabled_icon.svg);
+    border: none;
+    background-repeat: no-repeat;
+   
+    
+}

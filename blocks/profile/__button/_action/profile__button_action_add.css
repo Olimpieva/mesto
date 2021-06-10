@@ -10,13 +10,7 @@
     -moz-border-radius: 2px;
   }
 
-  @media screen and (max-width: 1024px) {
-    .profile__button_action_add {
-      width: 14.648vw;
-    }
-  }
-  
-  @media screen and (max-width: 425px) {
+  @media screen and (min-width: 320px) {
     .profile__button_action_add {
       width: 100%;
       margin: auto;
@@ -24,3 +18,20 @@
     }
   }
  
+
+  @media screen and (min-width: 768px) {
+    .profile__button_action_add {
+      width: 12vw;
+      border: 1px solid #fff;
+      background-size: 16px 16px;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .profile__button_action_add {
+      width: 150px;
+      border: 2px solid #fff;
+      background-size: 22px 22px;
+    }
+  }
+
