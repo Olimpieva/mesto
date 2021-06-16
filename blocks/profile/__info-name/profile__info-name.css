@@ -1,27 +1,37 @@
 
 .profile__info-name {
-    margin: 0 0 8px;
+    margin: 0;
     padding: 0;
-    font-size: 42px;
-    line-height: 48px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-weight: 500;
   }
-  
-  @media screen and (max-width: 1024px) {
+
+  @media screen and (min-width: 320px) {
     .profile__info-name {
-      font-size: 4.1015625vw;
-      line-height: 4.6875vw;
-    }
-  }
-  
-  @media screen and (max-width: 425px) {
-    .profile__info-name {
-      margin-bottom: 7px;
-      margin-left: 26px;
+      max-width: 220px;
+      margin-left: 28px;
       text-align: center;
-      font-size: 8.4375vw;
+      font-size:  27px;
       line-height: calc(32.68/27);
       
     }
   }
-
+  
+  @media screen and (min-width: 700px) {
+    .profile__info-name {
+      max-width: 293px;
+      margin: 0;
+      font-size: 4.102vw;
+      line-height: 4.688vw;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .profile__info-name {
+      max-width: 336px;
+      font-size: 42px;
+      line-height: calc(48/42); 
+    }
+  }

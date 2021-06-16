@@ -1,0 +1,19 @@
+
+
+.footer__copyright {
+    font-size: 1.406vw;
+    line-height: 1.21;
+    padding: 0;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 425px) {
+    .footer__copyright {
+      font-size: 0.875rem;
+    }
+  }
+  
+
+  .footer__copyright::before {
+    content: "\A9";
+  }
