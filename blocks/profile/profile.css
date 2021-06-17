@@ -1,25 +1,17 @@
 
 .profile {
+    width: 88.125%;
     max-width: 880px;
     margin: 0 auto;
     display: flex;
+    flex-direction: column; 
     align-items: center;
   }
   
-
-  @media screen and (min-width: 320px) {
-    .profile {
-      width: 88.125%;
-      flex-direction: column; 
-    }
-  }
-
-
   @media screen and (min-width: 700px) {
     .profile {
       width: 68.75%;
-      flex-direction: row;
-      
+      flex-direction: row; 
     }
   }
 

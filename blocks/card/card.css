@@ -1,27 +1,12 @@
 .card {
     min-height: 361px;
     padding: 0;
+    display: flex;
+    flex-direction: column;
     list-style: none;
     border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
     background-color: #FFF;
-    
 }
 
-@media screen and (min-width: 768px) {
-    .card { 
-        height: 28vw;
-        max-height: 361px;
-        
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    .card {
-        min-height: 361px;
-    }
-  }
 
