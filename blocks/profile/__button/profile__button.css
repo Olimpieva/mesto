@@ -5,6 +5,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: opacity ease-in-out 0.4s;
+    -moz-transition: opacity ease-in-out 0.4s;
   }
   
   .profile__button:hover {

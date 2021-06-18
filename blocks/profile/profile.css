@@ -9,6 +9,7 @@
   }
   
   @media screen and (min-width: 700px) {
+    
     .profile {
       width: 68.75%;
       flex-direction: row; 

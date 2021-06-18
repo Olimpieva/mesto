@@ -1,34 +1,30 @@
 
 .profile__button_action_edit {
-    width: 24px;
-    align-self: end;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     margin-bottom: 8px;
+    align-self: end;
     background-image: url('../../../../images/icons/edit_icon.svg');
+    background-size: 7.5px 7.5px;
     border: 1px solid #FFF;
   }
   
+  @media screen and (min-width: 700px) {
 
-  @media screen and (min-width: 320px) {
-    .profile__button_action_edit{
-      width: 18px;
-      height: 18px;
-      background-size: 7.5px 7.5px;
-    }
-  }
-  
-  @media screen and (min-width: 768px) {
     .profile__button_action_edit {
       width: 21px;
       height: 21px;
-      margin-bottom: 7px;
+      margin-bottom: 0.781vw;
+      background-size: 10px 10px;
     }
   }
   
   @media screen and (min-width: 1024px) {
+    
     .profile__button_action_edit {
       width: 24px;
       height: 24px;
       margin-bottom: 8px;
+
     }
   }

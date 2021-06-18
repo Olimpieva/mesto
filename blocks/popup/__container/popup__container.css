@@ -17,7 +17,7 @@
     background-color: #FFF;
 }
 
-@media all and (min-width: 768px) {
+@media screen and (min-width: 768px) {
     
     .popup__container {
         width: 50%;

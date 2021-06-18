@@ -2,21 +2,15 @@
 .profile__avatar {
     width: 120px;
     height: 120px;
-    margin: 0;
+    margin: 0 0 27px;
     object-fit: cover;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
   }
-  
-  
-  @media screen and (min-width: 320px) {
-    .profile__avatar {
-      margin-bottom: 27px;
-    }
-  }
 
   @media screen and (min-width: 700px) {
+
     .profile__avatar {
       margin-right: 2.9296875vw;
       margin-bottom: 0;
@@ -25,6 +19,7 @@
 
 
   @media screen and (min-width: 1280px) {
+    
     .profile__avatar {
       margin-right: 30px;
     }

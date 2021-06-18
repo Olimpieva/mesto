@@ -1,4 +1,6 @@
 
 .popup__button {
     border: none;
+    transition: opacity ease-in-out 0.3s;
+    -moz-transition: opacity ease-in-out 0.3s;
   }
