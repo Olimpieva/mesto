@@ -70,10 +70,10 @@ STACK
 WHAT'S NEXT
 -----------
 
-Main profile image editing
-The likes system 
-Uploading images to gallery 
-Form validation
+Main profile image editing   
+The likes system   
+Uploading images to gallery   
+Form validation   
 
 
 >  [Link to layout in Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)  
