@@ -23,6 +23,6 @@
     }
 }
 
-.popup__close:hover {
-    opacity: 0.8;
+.popup__button_action_close:hover {
+    opacity: 0.6;
 }

@@ -1,12 +1,18 @@
+
 .card {
     min-height: 361px;
     padding: 0;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     list-style: none;
     border-radius: 10px;
     overflow: hidden;
     background-color: #FFF;
+}
+
+.card:last-child {
+    margin-bottom: 0;
 }
 
 
