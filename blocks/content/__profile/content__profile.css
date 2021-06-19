@@ -3,7 +3,7 @@
     
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 700px) {
 
     .content__profile {
         margin: 40px auto 51px;
