@@ -15,4 +15,11 @@
     margin-bottom: 0;
 }
 
+@media screen and (min-width: 700px) {
+
+    .card {
+        margin: 0;
+    }
+}
+
 

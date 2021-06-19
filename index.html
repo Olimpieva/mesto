@@ -20,11 +20,11 @@
         <img class="profile__avatar" src="images/profile_image.jpg" alt="Аватар пользователя" />
         <div class="profile__info">
 
-          <p class="profile__info-name">Котик на пицце</p>
-          <button class="profile__button profile__button_action_edit" type="submit"></button>
+          <h1 class="profile__info-name">Котик на пицце</h1>
+          <button class="profile__button profile__button_action_edit" type="button"></button>
           <p class="profile__info-about">Исследователь космоса</p>
         </div>
-        <button class="profile__button profile__button_action_add"></button>
+        <button class="profile__button profile__button_action_add" type="button"></button>
       </section>
 
       <section class="gallery content__gallery">
@@ -33,7 +33,7 @@
           <li class="card">
             <img class="card__image" src="images/mount_cook.jpg" alt="Гора Кука, Новая Зеландия">
             <div class="card__info">
-              <article class="card__title">Гора Кука</article>
+              <h2 class="card__title">Гора Кука</h2>
               <button class="card__like" type="button"></button>
             </div>
           </li>
@@ -41,7 +41,7 @@
           <li class="card">
             <img class="card__image" src="images/neuschwanstein_castle.jpg" alt="Замок Нойшванштайн, Германия">
             <div class="card__info">
-              <article class="card__title">Замок Нойшванштайн</article>
+              <h2 class="card__title">Замок Нойшванштайн</h2>
               <button class="card__like" type="button"></button>
             </div>
           </li>
@@ -49,7 +49,7 @@
           <li class="card">
             <img class="card__image" src="images/dumbleyung_lake.jpg" alt="Озеро Дамблиунг, Австралия">
             <div class="card__info">
-              <article class="card__title">Озеро Дамблиунг</article>
+              <h2 class="card__title">Озеро Дамблиунг</h2>
               <button class="card__like" type="button"></button>
             </div>
           </li>
@@ -57,7 +57,7 @@
           <li class="card">
             <img class="card__image" src="images/red_square.jpg" alt="Красная площадь, Россия">
             <div class="card__info">
-              <article class="card__title">Красная площадь</article>
+              <h2 class="card__title">Красная площадь</h2>
               <button class="card__like" type="button"></button>
             </div>
           </li>
@@ -65,7 +65,7 @@
           <li class="card">
             <img class="card__image" src="images/mount_rila.jpg" alt="Гора Рила, Болгария">
             <div class="card__info">
-              <article class="card__title">Гора Рила</article>
+              <h2 class="card__title">Гора Рила</h2>
               <button class="card__like" type="button"></button>
             </div>
           </li>
@@ -88,17 +88,18 @@
       <p class="footer__copyright"> 2020 Mesto Russia</p>
     </footer>
 
-
-
     <div class="popup popup-profile">
-
-      <form class="popup__container">
-        <p class="popup__title">Редактировать профиль</p>
-        <input class="popup__input popup__input_type_name" type="text" value="" placeholder="Введите имя">
-        <input class="popup__input popup__input_type_about" type="text" value="" placeholder="Введите описание">
-        <button class="popup__button popup__button_action_save" type="submit">Сохранить</button>
+      <div class="popup__container">
+        <form class="popup__form" name="popup-profile">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__input popup__input_type_name" type="text" value="" placeholder="Введите имя"
+            name="profile-name">
+          <input class="popup__input popup__input_type_about" type="text" value="" placeholder="Введите описание"
+            name="profile-about">
+          <button class="popup__button popup__button_action_save" type="submit">Сохранить</button>
+        </form>
         <button class="popup__button popup__button_action_close" type="reset"></button>
-      </form>
+      </div>
 
     </div>
 
