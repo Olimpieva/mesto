@@ -5,7 +5,7 @@
     margin: 0;
     cursor: pointer;
     background-color: #FFF;
-    background-image: url('../../../../images/icons/like-disabled_icon.svg');
+    background-image: url('../../../images/icons/like-disabled_icon.svg');
     border: none;
     background-repeat: no-repeat;
     transition: opacity ease-in-out 0.3s;

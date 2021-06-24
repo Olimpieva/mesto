@@ -38,6 +38,7 @@
                 <h2 class="card__title"></h2>
                 <button class="card__like" type="button" aria-label="Поставить лайк"></button>
               </div>
+              <button class="card__remove" type="button" aria-label="Удалить изображение"></button>
             </li>
           </template>
         </ul>
@@ -68,9 +69,9 @@
       <div class="popup__container">
         <form class="popup__form" name="popup-card">
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__input popup__input_type_name" type="text" value="" placeholder="Название"
+          <input class="popup__input popup__input_type_caption" type="text" value="" placeholder="Название"
             name="profile-name">
-          <input class="popup__input popup__input_type_about" type="text" value="" placeholder="Ссылка на картинку"
+          <input class="popup__input popup__input_type_link" type="text" value="" placeholder="Ссылка на картинку"
             name="profile-about">
           <button class="popup__button popup__button_action_save" type="submit">Создать</button>
         </form>
@@ -81,7 +82,7 @@
   </div>
 
 
-  <script src="scripts/edit_profile.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>

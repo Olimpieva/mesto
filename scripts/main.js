@@ -60,15 +60,35 @@ profileForm.addEventListener('submit', (event) => {
     setProfileInfo();
 });
 
-const cards = document.querySelector('.cards')
 
-initialCards.forEach(item => renderCard(item))
+//cards
+
+const cards = document.querySelector('.cards');
+const cardTemplate = cards.querySelector('#card-template').content;
 
 function renderCard(card) {
-    const cardTemplate = cards.querySelector('#card-template').content;
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
     cardElement.querySelector('.card__image').src = card.link;
     cardElement.querySelector('.card__title').textContent = card.name;
     cards.append(cardElement)
 }
+
+initialCards.forEach(item => renderCard(item));
+
+const removeCardButtons = cards.querySelectorAll('.card__remove');
+const likeButtons = cards.querySelectorAll('.card__like');
+
+function removeCard(event) {
+    event.target.parentNode.remove();
+}
+
+function toggleLike(event) {
+    event.target.classList.toggle('card__like_active');
+}
+
+removeCardButtons.forEach(item => item.addEventListener('click', removeCard));
+likeButtons.forEach(item => item.addEventListener('click', toggleLike));
+
+
+
 

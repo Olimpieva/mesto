@@ -5,6 +5,7 @@
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    position: relative;
     list-style: none;
     border-radius: 10px;
     overflow: hidden;
