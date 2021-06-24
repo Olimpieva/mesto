@@ -31,55 +31,15 @@
 
       <section class="gallery content__gallery">
         <ul class="cards">
-
-          <li class="card">
-            <img class="card__image" src="images/mount_cook.jpg" alt="Гора Кука, Новая Зеландия">
-            <div class="card__info">
-              <h2 class="card__title">Гора Кука</h2>
-              <button class="card__like" type="button" aria-label="Поставить лайк"></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img class="card__image" src="images/neuschwanstein_castle.jpg" alt="Замок Нойшванштайн, Германия">
-            <div class="card__info">
-              <h2 class="card__title">Замок Нойшванштайн</h2>
-              <button class="card__like" type="button" aria-label="Поставить лайк"></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img class="card__image" src="images/dumbleyung_lake.jpg" alt="Озеро Дамблиунг, Австралия">
-            <div class="card__info">
-              <h2 class="card__title">Озеро Дамблиунг</h2>
-              <button class="card__like" type="button" aria-label="Поставить лайк"></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img class="card__image" src="images/red_square.jpg" alt="Красная площадь, Россия">
-            <div class="card__info">
-              <h2 class="card__title">Красная площадь</h2>
-              <button class="card__like" type="button" aria-label="Поставить лайк"></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img class="card__image" src="images/mount_rila.jpg" alt="Гора Рила, Болгария">
-            <div class="card__info">
-              <h2 class="card__title">Гора Рила</h2>
-              <button class="card__like" type="button" aria-label="Поставить лайк"></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img class="card__image" src="images/callanish.jpg" alt="Камни Калланиш, Шотландия">
-            <div class="card__info">
-              <article class="card__title">Калланиш</article>
-              <button class="card__like" type="button" aria-label="Поставить лайк"></button>
-            </div>
-          </li>
-
+          <template id="card-template">
+            <li class="card">
+              <img class="card__image" src="#" alt="#">
+              <div class="card__info">
+                <h2 class="card__title"></h2>
+                <button class="card__like" type="button" aria-label="Поставить лайк"></button>
+              </div>
+            </li>
+          </template>
         </ul>
 
       </section>
@@ -102,7 +62,20 @@
         </form>
         <button class="popup__button popup__button_action_close" type="reset" aria-label="Закрыть окно"></button>
       </div>
+    </div>
 
+    <div class="popup popup-card">
+      <div class="popup__container">
+        <form class="popup__form" name="popup-card">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__input popup__input_type_name" type="text" value="" placeholder="Название"
+            name="profile-name">
+          <input class="popup__input popup__input_type_about" type="text" value="" placeholder="Ссылка на картинку"
+            name="profile-about">
+          <button class="popup__button popup__button_action_save" type="submit">Создать</button>
+        </form>
+        <button class="popup__button popup__button_action_close" type="reset" aria-label="Закрыть окно"></button>
+      </div>
     </div>
 
   </div>
