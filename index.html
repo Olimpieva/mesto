@@ -23,7 +23,7 @@
           <h1 class="profile__info-name">Котик на пицце</h1>
           <button class="profile__button profile__button_action_edit" type="button"
             aria-label="Изменить профиль"></button>
-          <p class="profile__info-about">Исследователь космоса</p>
+          <p class="profile__info-caption">Исследователь космоса</p>
         </div>
         <button class="profile__button profile__button_action_add" type="button"
           aria-label="Добавить изображение"></button>
@@ -57,7 +57,7 @@
           <h2 class="popup__title">Редактировать профиль</h2>
           <input class="popup__input popup__input_type_name" type="text" value="" placeholder="Введите имя"
             name="profile-name">
-          <input class="popup__input popup__input_type_about" type="text" value="" placeholder="Введите описание"
+          <input class="popup__input popup__input_type_caption" type="text" value="" placeholder="Введите описание"
             name="profile-about">
           <button class="popup__button popup__button_action_save" type="submit">Сохранить</button>
         </form>
@@ -79,7 +79,16 @@
       </div>
     </div>
 
+    <div class="popup popup-image">
+      <div class="popup-image__container">
+        <button class="popup__button popup__button_action_close" type="button"></button>
+        <img class="popup-image__image" src="#" alt="#">
+        <p class="popup-image__title"></p>
+      </div>
+    </div>
+
   </div>
+
 
 
   <script src="scripts/main.js"></script>

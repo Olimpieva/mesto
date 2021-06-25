@@ -1,0 +1,28 @@
+
+  .profile__info-caption {
+    margin: 0;
+    padding: 0;
+    grid-column: span 2;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+  
+  @media screen and (min-width: 700px) {
+
+    .profile__info-caption {
+      text-align: start;
+      font-size: 1.7578125vw;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    
+    .profile__info-caption {
+      max-width: 336px;
+      font-size: 18px;
+    }
+  }

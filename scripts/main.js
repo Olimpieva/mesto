@@ -26,57 +26,8 @@ const initialCards = [
     }
 ]
 
-const userName = document.querySelector('.profile__info-name');
-const userAbout = document.querySelector('.profile__info-about');
-
-const openProfileFormButton = document.querySelector('.profile__button_action_edit');
-
-const popupProfile = document.querySelector('.popup-profile');
-const userNameInput = popupProfile.querySelector('.popup__input_type_name');
-const userAboutInput = popupProfile.querySelector('.popup__input_type_about');
-const closeProfileFormButton = popupProfile.querySelector('.popup__button_action_close')
-const profileForm = popupProfile.querySelector('.popup__form')
-
-function openProfileForm() {
-    userNameInput.value = userName.textContent;
-    userAboutInput.value = userAbout.textContent;
-    popupProfile.classList.add('popup_is-opened');
-}
-
-function closeProfileForm() {
-    popupProfile.classList.remove('popup_is-opened');
-}
-
-function setProfileInfo() {
-    userName.textContent = userNameInput.value;
-    userAbout.textContent = userAboutInput.value;
-    closeProfileForm();
-}
-
-openProfileFormButton.addEventListener('click', openProfileForm);
-closeProfileFormButton.addEventListener('click', closeProfileForm);
-profileForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    setProfileInfo();
-});
-
-
-//cards
-
 const cards = document.querySelector('.cards');
 const cardTemplate = cards.querySelector('#card-template').content;
-
-function renderCard(card) {
-    const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-    cardElement.querySelector('.card__image').src = card.link;
-    cardElement.querySelector('.card__title').textContent = card.name;
-    cards.append(cardElement)
-}
-
-initialCards.forEach(item => renderCard(item));
-
-const removeCardButtons = cards.querySelectorAll('.card__remove');
-const likeButtons = cards.querySelectorAll('.card__like');
 
 function removeCard(event) {
     event.target.parentNode.remove();
@@ -86,8 +37,78 @@ function toggleLike(event) {
     event.target.classList.toggle('card__like_active');
 }
 
-removeCardButtons.forEach(item => item.addEventListener('click', removeCard));
-likeButtons.forEach(item => item.addEventListener('click', toggleLike));
+function renderCard(name, link) {
+    const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+    cardElement.querySelector('.card__image').src = link;
+    cardElement.querySelector('.card__title').textContent = name;
+
+    const removeCardButton = cardElement.querySelector('.card__remove');
+    removeCardButton.addEventListener('click', removeCard);
+
+    const likeButton = cardElement.querySelector('.card__like');
+    likeButton.addEventListener('click', toggleLike);
+
+    cards.append(cardElement)
+}
+
+initialCards.forEach(item => renderCard(item.name, item.link));
+
+const userName = document.querySelector('.profile__info-name');
+const userCaption = document.querySelector('.profile__info-caption');
+
+const openProfileFormButton = document.querySelector('.profile__button_action_edit');
+const profilePopup = document.querySelector('.popup-profile');
+const userNameInput = profilePopup.querySelector('.popup__input_type_name');
+const userCaptionInput = profilePopup.querySelector('.popup__input_type_caption');
+const closeProfileFormButton = profilePopup.querySelector('.popup__button_action_close');
+const profileForm = profilePopup.querySelector('.popup__form');
+
+const openCardFormButton = document.querySelector('.profile__button_action_add')
+const cardPopup = document.querySelector('.popup-card');
+const cardCaptionInput = cardPopup.querySelector('.popup__input_type_caption');
+const cardLinkInput = cardPopup.querySelector('.popup__input_type_link');
+const closeCardFormButton = cardPopup.querySelector('.popup__button_action_close');
+const cardForm = cardPopup.querySelector('.popup__form');
+
+function openPopup(form) {
+    form.classList.add('popup_is-opened');
+}
+
+function closePopup(form) {
+    form.classList.remove('popup_is-opened');
+}
+
+function setProfileInfo() {
+    userName.textContent = userNameInput.value;
+    userCaption.textContent = userCaptionInput.value;
+    closePopup(profilePopup);
+}
+
+function setCardInfo() {
+    renderCard(cardCaptionInput.value, cardLinkInput.value)
+    closePopup(cardPopup);
+}
+
+openProfileFormButton.addEventListener('click', () => {
+    userNameInput.value = userName.textContent;
+    userCaptionInput.value = userCaption.textContent;
+    openPopup(profilePopup);
+});
+closeProfileFormButton.addEventListener('click', () => closePopup(profilePopup));
+profileForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    setProfileInfo();
+});
+
+openCardFormButton.addEventListener('click', () => openPopup(cardPopup));
+closeCardFormButton.addEventListener('click', () => closePopup(cardPopup))
+cardForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    setCardInfo();
+});
+
+
+
 
 
 
