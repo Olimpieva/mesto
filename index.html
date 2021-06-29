@@ -42,7 +42,6 @@
             </li>
           </template>
         </ul>
-
       </section>
 
     </main>
@@ -58,10 +57,10 @@
           <input class="popup__input popup__input_type_name" type="text" value="" placeholder="Введите имя"
             name="profile-name" required>
           <input class="popup__input popup__input_type_caption" type="text" value="" placeholder="Введите описание"
-            name="profile-about" required>
+            name="profile-caption" required>
           <button class="popup__button popup__button_action_save" type="submit">Сохранить</button>
         </form>
-        <button class="popup__button popup__button_action_close" type="reset" aria-label="Закрыть окно"></button>
+        <button class="popup__button popup__button_action_close" type="button" aria-label="Закрыть окно"></button>
       </div>
     </div>
 
@@ -70,12 +69,12 @@
         <form class="popup__form" name="popup-card">
           <h2 class="popup__title">Новое место</h2>
           <input class="popup__input popup__input_type_caption" type="text" value="" placeholder="Название"
-            name="profile-name" required>
-          <input class="popup__input popup__input_type_link" type="text" value="" placeholder="Ссылка на картинку"
-            name="profile-caption" required>
+            name="card-caption" required>
+          <input class="popup__input popup__input_type_link" type="url" value="" placeholder="Ссылка на картинку"
+            name="card-image" required>
           <button class="popup__button popup__button_action_save" type="submit">Создать</button>
         </form>
-        <button class="popup__button popup__button_action_close" type="reset" aria-label="Закрыть окно"></button>
+        <button class="popup__button popup__button_action_close" type="button" aria-label="Закрыть окно"></button>
       </div>
     </div>
 
@@ -89,9 +88,7 @@
 
   </div>
 
-
-
-  <script src="scripts/main.js"></script>
+  <script src="scripts/main.js" type="module"></script>
 </body>
 
 </html>
