@@ -85,7 +85,7 @@ function createCard({ name, link }) {
 }
 
 function renderCard(card) {
-    cards.append(card)
+    cards.prepend(card)
 }
 
 openProfileFormButton.addEventListener('click', () => {
