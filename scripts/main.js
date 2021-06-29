@@ -65,6 +65,7 @@ function renderCard({ name, link }) {
     const cardTitle = cardElement.querySelector('.card__title');
 
     cardImage.src = link;
+    cardImage.alt = name;
     cardTitle.textContent = name;
 
     cardImage.addEventListener('click', () => openFullImage(name, link))
