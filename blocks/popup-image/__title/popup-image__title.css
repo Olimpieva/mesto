@@ -1,5 +1,6 @@
 
 .popup-image__title {
+    max-width: 75vw;
     margin: 0;
     padding: 0;
     font-size: 12px;
