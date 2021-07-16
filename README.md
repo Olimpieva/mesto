@@ -1,6 +1,6 @@
 # Проект: Место
 
->  Этот репозиторий содержит проект для отработки навыков программирования, взаимодействия с DOM. Сервис включает в себя галерею изображений с функциями: редактирование личной информации, загрузка и удаление изображений в галерею, лайки. Сайт свёрстан на основе макета в figma методом Mobile First.
+>  Этот репозиторий содержит проект для отработки навыков программирования, взаимодействия с DOM. Сервис включает в себя галерею изображений с функциями: редактирование личной информации, загрузка и удаление изображений в галерею, система лайков, валидация полей ввода Сайт свёрстан на основе макета в figma методом Mobile First.
 
 СТРУКТУРА
 ------------
@@ -30,7 +30,7 @@
 
 Функция редактирования главной фотографии профиля   
 Счётчик лайков  
-Валидация форм   
+
   
 
 
@@ -41,7 +41,7 @@
 # Project: Travel to Russia
 
 
-> This repository contains a small training project to practicing programming skills and interacting with DOM. The service includes a little image gallery with the following functions: editing personal information ability, Uploading/removing images in gallery, displaying images in the original size,likes. The site is compiled based on the layout in figma using the Mobile First method.
+> This repository contains a small training project to practicing programming skills and interacting with DOM. The service includes a little image gallery with the following functions: editing personal information ability, Uploading/removing images in gallery, displaying images in the original size, likes, form validation  . The site is compiled based on the layout in figma using the Mobile First method.
 
 STRUCTURE
 ------------
@@ -71,7 +71,7 @@ WHAT'S NEXT
 
 Main profile image editing   
 like counter  
-Form validation   
+ 
 
 
 >  [Link to layout in Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)  

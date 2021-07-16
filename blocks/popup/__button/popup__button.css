@@ -4,3 +4,8 @@
     transition: opacity ease-in-out 0.3s;
     -moz-transition: opacity ease-in-out 0.3s;
   }
+
+
+  .popup__button:hover {
+    opacity: 0.8;
+}

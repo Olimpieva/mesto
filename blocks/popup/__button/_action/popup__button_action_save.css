@@ -20,7 +20,10 @@
     }
 }
 
-.popup__button:hover {
-    opacity: 0.8;
-}
-
+.popup__button_action_save:disabled {
+    border: 1px solid rgba(0, 0, 0, .2);
+    background-color: #fff;
+    color: rgba(0, 0, 0, .2);
+    pointer-events: none;
+    user-select: none;
+  }

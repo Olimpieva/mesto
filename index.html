@@ -52,13 +52,19 @@
 
     <div class="popup popup-profile">
       <div class="popup__container">
-        <form class="popup__form" name="popup-profile">
+        <form class="popup__form popup__form-profile" name="popup-profile">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_type_name" type="text" value="" placeholder="Введите имя"
-            name="profile-name" required>
-          <input class="popup__input popup__input_type_caption" type="text" value="" placeholder="Введите описание"
-            name="profile-caption" required>
-          <button class="popup__button popup__button_action_save" type="submit">Сохранить</button>
+          <fieldset class="popup__input-fieldset">
+            <input class="popup__input popup__input_type_name" id="profile-name" type="text" value=""
+              placeholder="Введите имя" name="profile-name" minlength="2" maxlength="40" required>
+            <span class="popup__input-error" id="profile-name-error"></span>
+          </fieldset>
+          <fieldset class="popup__input-fieldset">
+            <input class="popup__input popup__input_type_caption" id="profile-caption" type="text" value=""
+              placeholder="Введите описание" name="profile-caption" minlength="2" maxlength="200" required>
+            <span class="popup__input-error" id="profile-caption-error"></span>
+          </fieldset>
+          <button class="popup__button popup__button_action_save" type="submit" disabled>Сохранить</button>
         </form>
         <button class="popup__button popup__button_action_close" type="button" aria-label="Закрыть окно"></button>
       </div>
@@ -66,13 +72,19 @@
 
     <div class="popup popup-card">
       <div class="popup__container">
-        <form class="popup__form" name="popup-card">
+        <form class="popup__form popup__form-card" name="popup-card">
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__input popup__input_type_caption" type="text" value="" placeholder="Название"
-            name="card-caption" required>
-          <input class="popup__input popup__input_type_link" type="url" value="" placeholder="Ссылка на картинку"
-            name="card-image" required>
-          <button class="popup__button popup__button_action_save" type="submit">Создать</button>
+          <fieldset class="popup__input-fieldset">
+            <input class="popup__input popup__input_type_caption" id="card-name" type="text" value=""
+              placeholder="Название" name="card-caption" minlength="2" maxlength="30" required>
+            <span class="popup__input-error" id="card-name-error"></span>
+          </fieldset>
+          <fieldset class="popup__input-fieldset">
+            <input class="popup__input popup__input_type_link" id="card-link" type="url" value=""
+              placeholder="Ссылка на картинку" name="card-image" required>
+            <span class="popup__input-error" id="card-link-error"></span>
+          </fieldset>
+          <button class="popup__button popup__button_action_save" type="submit" disabled>Создать</button>
         </form>
         <button class="popup__button popup__button_action_close" type="button" aria-label="Закрыть окно"></button>
       </div>
@@ -88,7 +100,12 @@
 
   </div>
 
-  <script src="scripts/main.js" type="module"></script>
+  <script src="scripts/initial-cards.js"></script>
+  <script src="scripts/createCard.js"></script>
+  <script src="scripts/createPopup.js"></script>
+  <script src="scripts/validate.js"></script>
+  <script src="scripts/main.js"></script>
+
 </body>
 
 </html>
