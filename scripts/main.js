@@ -14,7 +14,7 @@ const cardPopupConfig = {
     popupOpenedClass: 'popup_is-opened',
     openButtonSelector: '.profile__button_action_add',
     closeButtonSelector: '.popup__button_action_close',
-    onOpen: onCardPopupClose
+    onOpen: onCardPopupOpen,
 }
 
 const profilePopupConfig = {
@@ -35,9 +35,13 @@ const { closePopup: closeCardPopup } = createPopup(cardPopupConfig);
 const { closePopup: closeProfilePopup } = createPopup(profilePopupConfig);
 const { openPopup: openImagePopup } = createPopup(imagePopupConfig);
 
-initialCards.forEach((card) => createCard(card, {
-    onImageClick: openImagePopup
-}));
+function createCardWrapper(card) {
+    createCard(card, {
+        onImageClick: openImagePopup
+    });
+}
+
+initialCards.forEach((card) => createCardWrapper(card));
 
 const cardFormConfig = {
     formSelector: '.popup__form-card',
@@ -64,7 +68,7 @@ function onProfilePopupOpen() {
     userCaptionInput.value = userCaption.textContent;
 }
 
-function onCardPopupClose() {
+function onCardPopupOpen() {
     resetCardForm();
 }
 
@@ -84,11 +88,8 @@ function setCardInfo() {
         name: cardCaptionInput.value,
         link: cardLinkInput.value,
     }
-    createCard(newCard, {
-        onImageClick: openImagePopup
-    });
+    createCardWrapper(newCard)
     closeCardPopup();
-    resetCardForm();
 }
 
 cardForm.addEventListener('submit', (event) => {

@@ -3,11 +3,12 @@ function hideInputErrorMessage(formElement, inputElement, inputErrorClass, input
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     errorElement.classList.remove(inputErrorMessageClass)
     inputElement.classList.remove(inputErrorClass);
+    errorElement.textContent = '';
 }
 
 function showInputErrorMessage(form, input, inputErrorClass, inputErrorMessageClass, errorMessage) {
     const errorElement = form.querySelector(`#${input.id}-error`)
-    errorElement.textContent = errorMessage
+    errorElement.textContent = errorMessage;
     errorElement.classList.add(inputErrorMessageClass);
     input.classList.add(inputErrorClass);
 }

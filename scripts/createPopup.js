@@ -21,7 +21,6 @@ const createPopup = ({ popupSelector, popupOpenedClass, openButtonSelector, clos
             onOpen();
         }
 
-        popup.classList.add('popup_animated');
         popup.classList.add(popupOpenedClass);
         popup.addEventListener('click', closePopupByOverlay);
         document.addEventListener('keyup', closePopupByEsc);
