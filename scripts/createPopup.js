@@ -1,5 +1,5 @@
 
-const createPopup = ({ popupSelector, popupOpenedClass, openButtonSelector, closeButtonSelector, onOpen, onClose }) => {
+export const createPopup = ({ popupSelector, popupOpenedClass, openButtonSelector, closeButtonSelector, onOpen, onClose }) => {
     const popup = document.querySelector(popupSelector);
     const closePopupButton = popup.querySelector(closeButtonSelector);
     const openPopupButton = document.querySelector(openButtonSelector);
@@ -21,6 +21,7 @@ const createPopup = ({ popupSelector, popupOpenedClass, openButtonSelector, clos
             onOpen();
         }
 
+        popup.classList.add('popup_animated'); // class "popup_animated" was added to solve the problem with the popup flickering when rendering the page. I don't want to remove it, please.
         popup.classList.add(popupOpenedClass);
         popup.addEventListener('click', closePopupByOverlay);
         document.addEventListener('keyup', closePopupByEsc);

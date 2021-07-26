@@ -1,13 +1,9 @@
-const profilePopup = document.querySelector('.popup-profile');
-const profileForm = document.querySelector('.popup__form-profile');
-const userNameInput = profilePopup.querySelector('.popup__input_type_name');
-const userCaptionInput = profilePopup.querySelector('.popup__input_type_caption');
-const userName = document.querySelector('.profile__info-name');
-const userCaption = document.querySelector('.profile__info-caption');
 
-const cardForm = document.querySelector('.popup__form-card');
-const cardCaptionInput = cardForm.querySelector('.popup__input_type_caption');
-const cardLinkInput = cardForm.querySelector('.popup__input_type_link');
+import { initialCards } from './initial-cards.js';
+import Card from './Card.js';
+import { createPopup } from './createPopup.js';
+import FormValidator from './FormValidator.js';
+
 
 const cardPopupConfig = {
     popupSelector: '.popup-card',
@@ -35,14 +31,6 @@ const { closePopup: closeCardPopup } = createPopup(cardPopupConfig);
 const { closePopup: closeProfilePopup } = createPopup(profilePopupConfig);
 const { openPopup: openImagePopup } = createPopup(imagePopupConfig);
 
-function createCardWrapper(card) {
-    createCard(card, {
-        onImageClick: openImagePopup
-    });
-}
-
-initialCards.forEach((card) => createCardWrapper(card));
-
 const cardFormConfig = {
     formSelector: '.popup__form-card',
     inputSelector: '.popup__input',
@@ -59,17 +47,31 @@ const profileFormConfig = {
     inputErrorMessageClass: 'popup__input-error_active',
 }
 
-const { resetForm: resetCardForm } = enableValidation(cardFormConfig)
-const { resetForm: resetProfileForm } = enableValidation(profileFormConfig)
+const profileForm = document.querySelector('.popup__form-profile');
+const userNameInput = profileForm.querySelector('.popup__input_type_name');
+const userCaptionInput = profileForm.querySelector('.popup__input_type_caption');
+const userName = document.querySelector('.profile__info-name');
+const userCaption = document.querySelector('.profile__info-caption');
+
+const cardForm = document.querySelector('.popup__form-card');
+const cardCaptionInput = cardForm.querySelector('.popup__input_type_caption');
+const cardLinkInput = cardForm.querySelector('.popup__input_type_link');
+
+const cardValidation = new FormValidator(cardFormConfig, cardForm)
+const profileValidation = new FormValidator(profileFormConfig, profileForm)
+
+const cards = document.querySelector('.cards');
 
 function onProfilePopupOpen() {
-    resetProfileForm();
+    profileValidation.resetForm()
+    profileValidation.enableValidation()
     userNameInput.value = userName.textContent;
     userCaptionInput.value = userCaption.textContent;
 }
 
 function onCardPopupOpen() {
-    resetCardForm();
+    cardValidation.resetForm()
+    cardValidation.enableValidation()
 }
 
 function setProfileInfo() {
@@ -88,7 +90,7 @@ function setCardInfo() {
         name: cardCaptionInput.value,
         link: cardLinkInput.value,
     }
-    createCardWrapper(newCard)
+    createCard(newCard)
     closeCardPopup();
 }
 
@@ -96,3 +98,27 @@ cardForm.addEventListener('submit', (event) => {
     event.preventDefault()
     setCardInfo();
 });
+
+function createFullImage(name, link) {
+    createPopup(imagePopupConfig);
+
+    const fullImage = document.querySelector('.popup-image__image');
+    const fullImageTitle = document.querySelector('.popup-image__title');
+
+    fullImage.src = link;
+    fullImageTitle.textContent = name;
+    fullImage.alt = name;
+
+    openImagePopup();
+}
+
+function renderCard(card) {
+    cards.prepend(card);
+}
+
+function createCard(card) {
+    const cardElement = new Card('#card-template', card, { onImageClick: createFullImage });
+    renderCard(cardElement.generateCard());
+}
+
+initialCards.forEach((card) => createCard(card));

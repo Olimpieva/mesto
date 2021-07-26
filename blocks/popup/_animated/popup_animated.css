@@ -1,0 +1,5 @@
+
+.popup_animated {
+    transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+}
