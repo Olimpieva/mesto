@@ -99,7 +99,7 @@ cardForm.addEventListener('submit', (event) => {
     setCardInfo();
 });
 
-function createFullImage(name, link) {
+function createFullImage({ name, link }) {
     createPopup(imagePopupConfig);
 
     const fullImage = document.querySelector('.popup-image__image');
