@@ -32,7 +32,6 @@ const { closePopup: closeProfilePopup } = createPopup(profilePopupConfig);
 const { openPopup: openImagePopup } = createPopup(imagePopupConfig);
 
 const cardFormConfig = {
-    formSelector: '.popup__form-card',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button_action_save',
     inputErrorClass: 'popup__input_invalid',
@@ -40,7 +39,6 @@ const cardFormConfig = {
 }
 
 const profileFormConfig = {
-    formSelector: '.popup__form-profile',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inputErrorClass: 'popup__input_invalid',
@@ -57,21 +55,25 @@ const cardForm = document.querySelector('.popup__form-card');
 const cardCaptionInput = cardForm.querySelector('.popup__input_type_caption');
 const cardLinkInput = cardForm.querySelector('.popup__input_type_link');
 
+const fullImage = document.querySelector('.popup-image__image');
+const fullImageTitle = document.querySelector('.popup-image__title');
+
 const cardValidation = new FormValidator(cardFormConfig, cardForm)
 const profileValidation = new FormValidator(profileFormConfig, profileForm)
 
 const cards = document.querySelector('.cards');
 
+profileValidation.enableValidation();
+cardValidation.enableValidation();
+
 function onProfilePopupOpen() {
     profileValidation.resetForm()
-    profileValidation.enableValidation()
     userNameInput.value = userName.textContent;
     userCaptionInput.value = userCaption.textContent;
 }
 
 function onCardPopupOpen() {
     cardValidation.resetForm()
-    cardValidation.enableValidation()
 }
 
 function setProfileInfo() {
@@ -90,7 +92,7 @@ function setCardInfo() {
         name: cardCaptionInput.value,
         link: cardLinkInput.value,
     }
-    createCard(newCard)
+    renderCard(newCard)
     closeCardPopup();
 }
 
@@ -100,11 +102,6 @@ cardForm.addEventListener('submit', (event) => {
 });
 
 function createFullImage({ name, link }) {
-    createPopup(imagePopupConfig);
-
-    const fullImage = document.querySelector('.popup-image__image');
-    const fullImageTitle = document.querySelector('.popup-image__title');
-
     fullImage.src = link;
     fullImageTitle.textContent = name;
     fullImage.alt = name;
@@ -112,13 +109,14 @@ function createFullImage({ name, link }) {
     openImagePopup();
 }
 
-function renderCard(card) {
-    cards.prepend(card);
-}
-
 function createCard(card) {
     const cardElement = new Card('#card-template', card, { onImageClick: createFullImage });
-    renderCard(cardElement.generateCard());
+    return cardElement.generateCard();
 }
 
-initialCards.forEach((card) => createCard(card));
+function renderCard(card) {
+    const cardItem = createCard(card);
+    cards.prepend(cardItem);
+}
+
+initialCards.forEach((card) => renderCard(card));
