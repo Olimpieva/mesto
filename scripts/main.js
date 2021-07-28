@@ -4,6 +4,10 @@ import Card from './Card.js';
 import { createPopup } from './createPopup.js';
 import FormValidator from './FormValidator.js';
 
+const cards = document.querySelector('.cards');
+
+const fullImage = document.querySelector('.popup-image__image');
+const fullImageTitle = document.querySelector('.popup-image__title');
 
 const cardPopupConfig = {
     popupSelector: '.popup-card',
@@ -31,14 +35,7 @@ const { closePopup: closeCardPopup } = createPopup(cardPopupConfig);
 const { closePopup: closeProfilePopup } = createPopup(profilePopupConfig);
 const { openPopup: openImagePopup } = createPopup(imagePopupConfig);
 
-const cardFormConfig = {
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button_action_save',
-    inputErrorClass: 'popup__input_invalid',
-    inputErrorMessageClass: 'popup__input-error_active',
-}
-
-const profileFormConfig = {
+const formConfig = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inputErrorClass: 'popup__input_invalid',
@@ -55,13 +52,8 @@ const cardForm = document.querySelector('.popup__form-card');
 const cardCaptionInput = cardForm.querySelector('.popup__input_type_caption');
 const cardLinkInput = cardForm.querySelector('.popup__input_type_link');
 
-const fullImage = document.querySelector('.popup-image__image');
-const fullImageTitle = document.querySelector('.popup-image__title');
-
-const cardValidation = new FormValidator(cardFormConfig, cardForm)
-const profileValidation = new FormValidator(profileFormConfig, profileForm)
-
-const cards = document.querySelector('.cards');
+const cardValidation = new FormValidator(formConfig, cardForm)
+const profileValidation = new FormValidator(formConfig, profileForm)
 
 profileValidation.enableValidation();
 cardValidation.enableValidation();
