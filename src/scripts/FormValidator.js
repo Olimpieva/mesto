@@ -51,7 +51,6 @@ export default class FormValidator {
     }
 
     resetForm = () => {
-        console.log('Reset Form')
         this._inputList.forEach((inputElement) => this._hideInputErrorMessage(inputElement));
         this._formElement.reset();
         this._submitButton.disabled = true;

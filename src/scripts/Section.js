@@ -7,7 +7,6 @@ export default class Section {
     }
 
     addItem = (item) => {
-        console.log('add item')
         this._container.prepend(item);
     }
 

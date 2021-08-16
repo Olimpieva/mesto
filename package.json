@@ -1,0 +1,37 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": ">  Этот репозиторий содержит проект для отработки навыков программирования, взаимодействия с DOM. Сервис включает в себя галерею изображений с функциями: редактирование личной информации, загрузка и удаление изображений в галерею, система лайков, валидация полей ввода. Сайт свёрстан на основе макета в figma методом Mobile First.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olimpieva/mesto.git"
+  },
+  "author": "Olimpieva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Olimpieva/mesto/issues"
+  },
+  "homepage": "https://github.com/Olimpieva/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^6.2.0",
+    "cssnano": "^5.0.7",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.0",
+    "postcss-loader": "^6.1.1",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "core-js": "^3.16.1"
+  }
+}
