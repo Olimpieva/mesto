@@ -1,9 +1,9 @@
 
 export default class Card {
-    constructor(cardTemplateSelector, data, { onImageClick }) {
+    constructor(cardTemplateSelector, data, { handlerCardClick }) {
         this._cardTemplate = document.querySelector(cardTemplateSelector).content;
         this._data = data;
-        this._onImageClick = onImageClick;
+        this._handlerCardClick = handlerCardClick;
     }
 
     _getCardTemplate = () => this._cardTemplate.querySelector('.card').cloneNode(true);
@@ -19,7 +19,7 @@ export default class Card {
     _setEventListeners = () => {
         this._card.querySelector('.card__like').addEventListener('click', this._toggleLike);
         this._card.querySelector('.card__remove').addEventListener('click', this._removeCard);
-        this._card.querySelector('.card__image').addEventListener('click', () => this._onImageClick(this._data));
+        this._card.querySelector('.card__image').addEventListener('click', () => this._handlerCardClick(this._data));
     }
 
     generateCard = () => {
