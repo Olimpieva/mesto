@@ -17,7 +17,8 @@ import {
     cardPopupSelector,
     profilePopupSelector,
     fullImagePopupSelector,
-    cardsContainerSelector
+    cardsContainerSelector,
+    cardTemplateSelector
 } from '../constants/constants.js';
 
 const cardValidation = new FormValidator(formConfig, cardForm)
@@ -37,7 +38,6 @@ const profilePopup = new PopupWithForm(profilePopupSelector, (profileData) => {
 profilePopup.setEventListeners();
 
 profilePopupOpenButton.addEventListener('click', () => {
-    const profileForm = document.querySelector('.popup__form-profile');
     profileForm.elements.name.value = profileInfo.userInfo.name;
     profileForm.elements.caption.value = profileInfo.userInfo.caption;
 
@@ -56,7 +56,7 @@ const fullImagePopup = new PopupWithImage(fullImagePopupSelector);
 fullImagePopup.setEventListeners();
 
 function createCard(card) {
-    const cardElement = new Card('#card-template', card, {
+    const cardElement = new Card(cardTemplateSelector, card, {
         handlerCardClick: (data) => {
             fullImagePopup.open(data);
         }

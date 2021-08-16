@@ -17,3 +17,4 @@ export const profilePopupSelector = '.popup-profile';
 export const fullImagePopupSelector = '.popup-image';
 
 export const cardsContainerSelector = '.cards';
+export const cardTemplateSelector = '#card-template';

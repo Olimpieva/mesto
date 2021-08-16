@@ -13,6 +13,7 @@ export default class Popup {
 
     close() {
         this._popup.classList.remove('popup_is-opened');
+        this._popup.classList.remove('popup_animated');
         this._popup.removeEventListener('click', this._handleOverlayClose);
         document.removeEventListener('keyup', this._handleEscClose);
     }
