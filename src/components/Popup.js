@@ -5,10 +5,8 @@ export default class Popup {
     }
 
     open() {
-        console.log(this._popup)
         this._popup.classList.add('popup_is-opened');
         this._popup.classList.add('popup_animated'); // class "popup_animated" was added to solve the problem with the popup flickering when rendering the page. I don't want to remove it, please.
-
         this._popup.addEventListener('click', this._handleOverlayClose);
         document.addEventListener('keyup', this._handleEscClose);
     }

@@ -1,13 +1,13 @@
 
 import '../pages/index.css';
 
-import { initialCards } from '../scripts/initial-cards.js';
-import Card from '../scripts/Card.js';
-import PopupWithImage from '../scripts/PopupWithImage.js';
-import PopupWithForm from '../scripts/PopupWithForm.js';
-import FormValidator from '../scripts/FormValidator.js';
-import UserInfo from '../scripts/UserInfo.js';
-import Section from '../scripts/Section.js';
+import { initialCards } from '../utils/initial-cards.js';
+import Card from '../components/Card.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import FormValidator from '../components/FormValidator.js';
+import UserInfo from '../components/UserInfo.js';
+import Section from '../components/Section.js';
 import {
     formConfig,
     profileForm,
@@ -19,7 +19,7 @@ import {
     fullImagePopupSelector,
     cardsContainerSelector,
     cardTemplateSelector
-} from '../constants/constants.js';
+} from '../utils/constants.js';
 
 const cardValidation = new FormValidator(formConfig, cardForm)
 const profileValidation = new FormValidator(formConfig, profileForm)
