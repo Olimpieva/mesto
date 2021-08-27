@@ -15,6 +15,7 @@ export default class PopupWithForm extends Popup {
     _getInputValues() {
         this._inputValues = this._inputList.reduce((objInputValues, inputElement) => {
             objInputValues[inputElement.name] = inputElement.value;
+            console.log({ objInputValues })
             return objInputValues
         }, {})
         return this._inputValues

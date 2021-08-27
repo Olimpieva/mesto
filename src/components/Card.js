@@ -1,9 +1,11 @@
 
 export default class Card {
-    constructor(cardTemplateSelector, data, { handlerCardClick }) {
+    constructor(userId, cardTemplateSelector, data, { handlerCardClick, handlerRemoveCard }) {
         this._cardTemplate = document.querySelector(cardTemplateSelector).content;
         this._data = data;
         this._handlerCardClick = handlerCardClick;
+        this._handlerRemoveCard = handlerRemoveCard;
+        this._userId = userId;
     }
 
     _getCardTemplate = () => this._cardTemplate.querySelector('.card').cloneNode(true);
@@ -13,6 +15,7 @@ export default class Card {
     }
 
     _removeCard = () => {
+        this._handlerRemoveCard(this._data._id)
         this._card.remove();
     }
 
@@ -24,6 +27,10 @@ export default class Card {
 
     generateCard = () => {
         this._card = this._getCardTemplate();
+
+        if (this._userId !== this._data.owner._id) {
+            this._card.querySelector('.card__remove').style.display = 'none';
+        }
 
         const cardImage = this._card.querySelector('.card__image');
         const cardTitle = this._card.querySelector('.card__title');

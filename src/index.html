@@ -17,13 +17,13 @@
     <main class="content">
 
       <section class="profile content__profile">
-        <img class="profile__avatar" src="<%=require('./images/profile_image.jpg')%>" alt="Аватар пользователя" />
+        <img class="profile__avatar" src="" alt="Аватар пользователя" />
         <div class="profile__info">
 
-          <h1 class="profile__info-name">Котик на пицце</h1>
+          <h1 class="profile__info-name"></h1>
           <button class="profile__button profile__button_action_edit" type="button"
             aria-label="Изменить профиль"></button>
-          <p class="profile__info-caption">Исследователь космоса</p>
+          <p class="profile__info-caption"></p>
         </div>
         <button class="profile__button profile__button_action_add" type="button"
           aria-label="Добавить изображение"></button>
@@ -61,7 +61,7 @@
           </fieldset>
           <fieldset class="popup__input-fieldset">
             <input class="popup__input popup__input_type_caption" id="profile-caption" type="text" value=""
-              placeholder="Введите описание" name="caption" minlength="2" maxlength="200" required>
+              placeholder="Введите описание" name="about" minlength="2" maxlength="200" required>
             <span class="popup__input-error" id="profile-caption-error"></span>
           </fieldset>
           <button class="popup__button popup__button_action_save" type="submit" disabled>Сохранить</button>
@@ -96,6 +96,14 @@
         <img class="popup-image__image" src="#" alt="#">
         <h2 class="popup-image__title"></h2>
       </div>
+    </div>
+
+    <div class="popup popup-remove-card">
+      <form class="popup__container popup__container_type_delete">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button class="popup__button popup__button_action_save" type="submit">Да</button>
+      </form>
+      <button class="popup__button popup__button_action_close" aria-label="Закрыть окно"></button>
     </div>
 
   </div>

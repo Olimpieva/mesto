@@ -1,4 +1,12 @@
 
+export const apiOptions = {
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-27',
+    headers: {
+        authorization: 'e0a0481d-9fe7-4aea-8a7b-5b74aae0ea67',
+        'Content-Type': 'application/json'
+    }
+}
+
 export const formConfig = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
