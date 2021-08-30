@@ -8,6 +8,7 @@
     font-weight: 900;
     font-size: 24px;
     max-width: 212px;
+    pointer-events: none;
 }
 
 @media screen and (min-width: 1024px) {

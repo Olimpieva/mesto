@@ -42,7 +42,19 @@ export default class Api {
         })
     }
 
-    addNewCard(newCardInfo) {
+    updateAvatar(avatarLink) {
+        console.log('UpdateAvatar')
+        console.log(avatarLink)
+        return this._sendRequest(`users/me/avatar`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({
+                avatar: avatarLink,
+            })
+        })
+    }
+
+    addCard(newCardInfo) {
         console.log('AddCard')
         return this._sendRequest(`cards`, {
             method: 'POST',
@@ -61,5 +73,23 @@ export default class Api {
             headers: this._headers,
         })
     }
+
+    likeCard(cardId) {
+        console.log('LikeCard')
+        return this._sendRequest(`cards/likes/${cardId}`, {
+            method: 'PUT',
+            headers: this._headers,
+        })
+    }
+
+    dislikeCard(cardId) {
+        console.log('DislikeCard')
+        return this._sendRequest(`cards/likes/${cardId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+    }
+
+
 
 }

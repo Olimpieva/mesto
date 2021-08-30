@@ -6,6 +6,7 @@ import Card from '../components/Card.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import FormValidator from '../components/FormValidator.js';
+import PopupConfirmation from '../components/PopupСonfirmation.js';
 import UserInfo from '../components/UserInfo.js';
 import Section from '../components/Section.js';
 import Api from '../components/Api.js';
@@ -14,11 +15,15 @@ import {
     formConfig,
     profileForm,
     cardForm,
+    avatarForm,
     profilePopupOpenButton,
     cardPopupOpenButton,
+    avatarPopupOpenButton,
     cardPopupSelector,
     profilePopupSelector,
     fullImagePopupSelector,
+    confirmationPopupSelector,
+    avatarPopupSelector,
     cardsContainerSelector,
     cardTemplateSelector
 } from '../utils/constants.js';
@@ -79,11 +84,27 @@ api.getUserInfo()
 //     })
 //     .catch(error => console.log(`Произошла ошибка: ${error}`));
 
-const cardValidation = new FormValidator(formConfig, cardForm)
-const profileValidation = new FormValidator(formConfig, profileForm)
+const cardValidation = new FormValidator(formConfig, cardForm);
+const profileValidation = new FormValidator(formConfig, profileForm);
+const avatarValidation = new FormValidator(formConfig, avatarForm)
 
 profileValidation.enableValidation();
 cardValidation.enableValidation();
+avatarValidation.enableValidation();
+
+const confirmationPopup = new PopupConfirmation(confirmationPopupSelector, (cardId, cardElement) => {
+    api.removeCard(cardId);
+    cardElement.remove();
+})
+confirmationPopup.setEventListeners()
+
+const avatarPopup = new PopupWithForm(avatarPopupSelector, (avatarData) => {
+    profileInfo.userInfo = avatarData;
+    api.updateAvatar(avatarData.avatar)
+}, avatarValidation);
+avatarPopup.setEventListeners();
+
+avatarPopupOpenButton.addEventListener('click', () => avatarPopup.open())
 
 const profilePopup = new PopupWithForm(profilePopupSelector, (profileData) => {
     api.updateUserInfo(profileData)
@@ -101,7 +122,7 @@ profilePopupOpenButton.addEventListener('click', () => {
 })
 
 const cardPopup = new PopupWithForm(cardPopupSelector, (cardData) => {
-    api.addNewCard(cardData)
+    api.addCard(cardData)
         .then((cardData) => {
             console.log(cardData)
             const card = createCard(cardData)
@@ -123,8 +144,25 @@ function createCard(card) {
             handlerCardClick: (data) => {
                 fullImagePopup.open(data);
             },
-            handlerRemoveCard: (cardId) => {
-                api.removeCard(cardId)
+            handlerRemoveCard: (data, card) => {
+                confirmationPopup.open(data, card);
+            },
+            handlerLikeClick: function (cardId, isLiked) {
+                if (isLiked) {
+                    api.dislikeCard(cardId)
+                        .then(result => {
+                            this.likes = result.likes;
+                            this.renderLikes()
+                        })
+                        .catch(error => console.log(`Произошла ошибка: ${error}`));
+                } else {
+                    api.likeCard(cardId)
+                        .then(result => {
+                            this.likes = result.likes;
+                            this.renderLikes()
+                        })
+                        .catch(error => console.log(`Произошла ошибка: ${error}`));
+                }
             }
         });
     return cardElement.generateCard();

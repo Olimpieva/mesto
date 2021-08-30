@@ -12,7 +12,8 @@
     background-image: url('../../../images/icons/trash__icon.svg');
     background-repeat: no-repeat;
     background-position: center;
-    transition: opacity ease-in-out 0.4s;
+    transition: opacity ease-in-out 0.2s;
+    -moz-transition: opacity ease-in-out 0.2s;
 }
 .card__remove:hover {
     opacity: 0.6;

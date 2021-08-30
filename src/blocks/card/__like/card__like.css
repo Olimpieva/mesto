@@ -3,13 +3,15 @@
     width: 22px;
     height: 19px;
     margin: 0;
+    padding: 0;
     cursor: pointer;
     background-color: #FFF;
     background-image: url('../../../images/icons/like-disabled_icon.svg');
     border: none;
     background-repeat: no-repeat;
-    transition: opacity ease-in-out 0.3s;
-    -moz-transition: opacity ease-in-out 0.3s;
+    background-position: center;
+    transition: opacity ease-in-out 0.2s;
+    -moz-transition: opacity ease-in-out 0.2s;
 }
 
 .card__like:hover {
