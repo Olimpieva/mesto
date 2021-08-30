@@ -6,7 +6,6 @@ export default class Api {
     }
 
     _sendRequest(path, requestOptions) {
-        console.log('sendRequest')
         return fetch(`${this._url}/${path}`, requestOptions)
             .then((res) => {
                 if (res.ok) {
@@ -17,21 +16,18 @@ export default class Api {
     }
 
     getInitialCards() {
-        console.log('getInitialCards')
         return this._sendRequest(`cards`, {
             headers: this._headers
         })
     }
 
     getUserInfo() {
-        console.log('getUserInfo')
         return this._sendRequest(`users/me`, {
             headers: this._headers,
         });
     }
 
     updateUserInfo(newUserInfo) {
-        console.log('UpdateUserInfo')
         return this._sendRequest(`users/me`, {
             method: 'PATCH',
             headers: this._headers,
@@ -43,8 +39,6 @@ export default class Api {
     }
 
     updateAvatar(avatarLink) {
-        console.log('UpdateAvatar')
-        console.log(avatarLink)
         return this._sendRequest(`users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
@@ -55,7 +49,6 @@ export default class Api {
     }
 
     addCard(newCardInfo) {
-        console.log('AddCard')
         return this._sendRequest(`cards`, {
             method: 'POST',
             headers: this._headers,
@@ -67,7 +60,6 @@ export default class Api {
     }
 
     removeCard(cardId) {
-        console.log('RemoveCard')
         return this._sendRequest(`cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers,
@@ -75,7 +67,6 @@ export default class Api {
     }
 
     likeCard(cardId) {
-        console.log('LikeCard')
         return this._sendRequest(`cards/likes/${cardId}`, {
             method: 'PUT',
             headers: this._headers,
@@ -83,7 +74,6 @@ export default class Api {
     }
 
     dislikeCard(cardId) {
-        console.log('DislikeCard')
         return this._sendRequest(`cards/likes/${cardId}`, {
             method: 'DELETE',
             headers: this._headers,

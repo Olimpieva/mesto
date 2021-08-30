@@ -1,7 +1,6 @@
 
 import '../pages/index.css';
 
-import { initialCards } from '../utils/initial-cards.js';
 import Card from '../components/Card.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -13,6 +12,7 @@ import Api from '../components/Api.js';
 import {
     apiOptions,
     formConfig,
+    profileInfoConfig,
     profileForm,
     cardForm,
     avatarForm,
@@ -26,18 +26,7 @@ import {
     avatarPopupSelector,
     cardsContainerSelector,
     cardTemplateSelector
-} from '../utils/constants.js';
-
-
-// fetch('https://mesto.nomoreparties.co/v1/cohort-27/cards', {
-//     headers: {
-//         authorization: 'e0a0481d-9fe7-4aea-8a7b-5b74aae0ea67'
-//     }
-// })
-//     .then(res => res.json())
-//     .then((result) => {
-//         console.log(result);
-//     });
+} from '../constants/constants.js';
 
 const api = new Api(apiOptions);
 
@@ -46,17 +35,7 @@ const cardList = new Section((item) => {
     cardList.addItem(card);
 }, cardsContainerSelector)
 
-// api.getInitialCards()
-//     .then(initialCards => {
-//         cardList.renderItems(initialCards);
-//     })
-//     .catch(error => console.log(`Произошла ошибка: ${error}`));
-
-const profileInfo = new UserInfo({
-    nameSelector: '.profile__info-name',
-    captionSelector: '.profile__info-caption',
-    avatarSelector: '.profile__avatar',
-})
+const profileInfo = new UserInfo(profileInfoConfig)
 
 let userId;
 
@@ -72,18 +51,6 @@ api.getUserInfo()
     })
     .catch(error => console.log(`Произошла ошибка: ${error}`));
 
-
-
-// Promise.all([api.getUserInfo(), api.getInitialCards()])
-//     .then(([userData, initialCards]) => {
-//         cardList.renderItems(initialCards);
-//         userId = userData._id;
-//         profileInfo.userInfo = userData;
-
-//         console.log(userId)
-//     })
-//     .catch(error => console.log(`Произошла ошибка: ${error}`));
-
 const cardValidation = new FormValidator(formConfig, cardForm);
 const profileValidation = new FormValidator(formConfig, profileForm);
 const avatarValidation = new FormValidator(formConfig, avatarForm)
@@ -98,20 +65,34 @@ const confirmationPopup = new PopupConfirmation(confirmationPopupSelector, (card
 })
 confirmationPopup.setEventListeners()
 
-const avatarPopup = new PopupWithForm(avatarPopupSelector, (avatarData) => {
-    profileInfo.userInfo = avatarData;
+const fullImagePopup = new PopupWithImage(fullImagePopupSelector);
+fullImagePopup.setEventListeners();
+
+const avatarPopup = new PopupWithForm(avatarPopupSelector, function (avatarData) {
+    this.renderLoading(true)
     api.updateAvatar(avatarData.avatar)
+        .then(() => profileInfo.userInfo = avatarData)
+        .catch(error => console.log(`Произошла ошибка: ${error}`))
+        .finally(() => {
+            this.renderLoading(false);
+            this.close();
+        })
 }, avatarValidation);
 avatarPopup.setEventListeners();
 
 avatarPopupOpenButton.addEventListener('click', () => avatarPopup.open())
 
-const profilePopup = new PopupWithForm(profilePopupSelector, (profileData) => {
+const profilePopup = new PopupWithForm(profilePopupSelector, function (profileData) {
+    this.renderLoading(true)
     api.updateUserInfo(profileData)
         .then(profileData => {
             profileInfo.userInfo = profileData;
         })
-        .catch(error => console.log(`Произошла ошибка: ${error}`));
+        .catch(error => console.log(`Произошла ошибка: ${error}`))
+        .finally(() => {
+            this.renderLoading(false);
+            this.close();
+        })
 }, profileValidation);
 profilePopup.setEventListeners();
 
@@ -121,22 +102,23 @@ profilePopupOpenButton.addEventListener('click', () => {
     profilePopup.open();
 })
 
-const cardPopup = new PopupWithForm(cardPopupSelector, (cardData) => {
+const cardPopup = new PopupWithForm(cardPopupSelector, function (cardData) {
+    this.renderLoading(true);
     api.addCard(cardData)
         .then((cardData) => {
-            console.log(cardData)
             const card = createCard(cardData)
             cardList.addItem(card)
         })
-        .catch(error => console.log(`Произошла ошибка: ${error}`));
+        .catch(error => console.log(`Произошла ошибка: ${error}`))
+        .finally(() => {
+            this.renderLoading(false);
+            this.close();
+        });
 
 }, cardValidation);
 cardPopup.setEventListeners();
 
 cardPopupOpenButton.addEventListener('click', () => cardPopup.open());
-
-const fullImagePopup = new PopupWithImage(fullImagePopupSelector);
-fullImagePopup.setEventListeners();
 
 function createCard(card) {
     const cardElement = new Card(userId, cardTemplateSelector, card,
@@ -167,10 +149,3 @@ function createCard(card) {
         });
     return cardElement.generateCard();
 }
-
-// const rendererCards = new Section({
-//     items: initialCards, renderer: (item) => {
-//         const card = createCard(item);
-//         rendererCards.addItem(card);
-//     }
-// }, cardsContainerSelector)

@@ -14,6 +14,12 @@ export const formConfig = {
     inputErrorMessageClass: 'popup__input-error_active',
 }
 
+export const profileInfoConfig = {
+    nameSelector: '.profile__info-name',
+    captionSelector: '.profile__info-caption',
+    avatarSelector: '.profile__avatar',
+}
+
 export const profileForm = document.querySelector('.popup__form-profile');
 export const cardForm = document.querySelector('.popup__form-card');
 export const avatarForm = document.querySelector('.popup__form-avatar');

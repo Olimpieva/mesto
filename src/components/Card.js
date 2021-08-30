@@ -2,13 +2,13 @@
 export default class Card {
     constructor(userId, cardTemplateSelector, data, { handlerCardClick, handlerRemoveCard, handlerLikeClick }) {
         this._cardTemplate = document.querySelector(cardTemplateSelector).content;
+        this._userId = userId;
         this._data = data;
+        this._cardId = this._data._id;
+        this.likes = this._data.likes;
         this._handlerCardClick = handlerCardClick;
         this._handlerRemoveCard = handlerRemoveCard;
         this._handlerLikeClick = handlerLikeClick;
-        this._userId = userId;
-        this._cardId = this._data._id;
-        this.likes = this._data.likes;
     }
 
     _getCardTemplate = () => this._cardTemplate.querySelector('.card').cloneNode(true);
