@@ -35,7 +35,7 @@
 
 >  [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)  
 
->  [Ссылка на проект](https://olimpieva.github.io/mesto/index.html)
+>  [Ссылка на проект](https://olimpieva.github.io/mesto)
 
 # Project: Gallery
 
@@ -74,4 +74,4 @@ Nothing. It's perfect
 
 >  [Link to layout in Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)  
 
->  [Link to project](https://olimpieva.github.io/mesto/index.html)
+>  [Link to project](https://olimpieva.github.io/mesto)
