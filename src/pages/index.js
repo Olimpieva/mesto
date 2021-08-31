@@ -37,7 +37,7 @@ const cardList = new Section((item) => {
     cardList.addItem(card);
 }, cardsContainerSelector)
 
-const profileInfo = new UserInfo(profileInfoConfig)
+const profileInfo = new UserInfo(profileInfoConfig);
 
 let userId;
 
@@ -57,9 +57,12 @@ profileValidation.enableValidation();
 cardValidation.enableValidation();
 avatarValidation.enableValidation();
 
-const confirmationPopup = new PopupConfirmation(confirmationPopupSelector, (cardId, cardElement) => {
+const confirmationPopup = new PopupConfirmation(confirmationPopupSelector, function (cardId, cardElement) {
     api.removeCard(cardId)
-        .then(() => cardElement.remove())
+        .then(() => {
+            cardElement.remove();
+            this.close();
+        })
         .catch(error => console.log(`Произошла ошибка: ${error}`));
 })
 confirmationPopup.setEventListeners()
