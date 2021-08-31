@@ -13,12 +13,6 @@ import {
     apiOptions,
     formConfig,
     profileInfoConfig,
-    profileForm,
-    cardForm,
-    avatarForm,
-    profilePopupOpenButton,
-    cardPopupOpenButton,
-    avatarPopupOpenButton,
     cardPopupSelector,
     profilePopupSelector,
     fullImagePopupSelector,
@@ -27,6 +21,14 @@ import {
     cardsContainerSelector,
     cardTemplateSelector
 } from '../constants/constants.js';
+
+const profileForm = document.querySelector('.popup__form-profile');
+const cardForm = document.querySelector('.popup__form-card');
+const avatarForm = document.querySelector('.popup__form-avatar');
+
+const profilePopupOpenButton = document.querySelector('.profile__button_action_edit');
+const cardPopupOpenButton = document.querySelector('.profile__button_action_add');
+const avatarPopupOpenButton = document.querySelector('.profile__avatar-overlay');
 
 const api = new Api(apiOptions);
 
@@ -39,15 +41,11 @@ const profileInfo = new UserInfo(profileInfoConfig)
 
 let userId;
 
-api.getUserInfo()
-    .then(userData => {
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+    .then(([userData, initialCards]) => {
         profileInfo.userInfo = userData;
         userId = userData._id;
-        api.getInitialCards()
-            .then(initialCards => {
-                cardList.renderItems(initialCards);
-            })
-            .catch(error => console.log(`Произошла ошибка: ${error}`));
+        cardList.renderItems(initialCards);
     })
     .catch(error => console.log(`Произошла ошибка: ${error}`));
 
@@ -60,8 +58,9 @@ cardValidation.enableValidation();
 avatarValidation.enableValidation();
 
 const confirmationPopup = new PopupConfirmation(confirmationPopupSelector, (cardId, cardElement) => {
-    api.removeCard(cardId);
-    cardElement.remove();
+    api.removeCard(cardId)
+        .then(() => cardElement.remove())
+        .catch(error => console.log(`Произошла ошибка: ${error}`));
 })
 confirmationPopup.setEventListeners()
 
@@ -69,30 +68,28 @@ const fullImagePopup = new PopupWithImage(fullImagePopupSelector);
 fullImagePopup.setEventListeners();
 
 const avatarPopup = new PopupWithForm(avatarPopupSelector, function (avatarData) {
-    this.renderLoading(true)
+    this.renderLoading(true);
     api.updateAvatar(avatarData.avatar)
-        .then(() => profileInfo.userInfo = avatarData)
-        .catch(error => console.log(`Произошла ошибка: ${error}`))
-        .finally(() => {
-            this.renderLoading(false);
+        .then(() => {
+            profileInfo.userInfo = avatarData;
             this.close();
         })
+        .catch(error => console.log(`Произошла ошибка: ${error}`))
+        .finally(() => this.renderLoading(false));
 }, avatarValidation);
 avatarPopup.setEventListeners();
 
 avatarPopupOpenButton.addEventListener('click', () => avatarPopup.open())
 
 const profilePopup = new PopupWithForm(profilePopupSelector, function (profileData) {
-    this.renderLoading(true)
+    this.renderLoading(true);
     api.updateUserInfo(profileData)
         .then(profileData => {
             profileInfo.userInfo = profileData;
-        })
-        .catch(error => console.log(`Произошла ошибка: ${error}`))
-        .finally(() => {
-            this.renderLoading(false);
             this.close();
         })
+        .catch(error => console.log(`Произошла ошибка: ${error}`))
+        .finally(() => this.renderLoading(false));
 }, profileValidation);
 profilePopup.setEventListeners();
 
@@ -106,14 +103,12 @@ const cardPopup = new PopupWithForm(cardPopupSelector, function (cardData) {
     this.renderLoading(true);
     api.addCard(cardData)
         .then((cardData) => {
-            const card = createCard(cardData)
-            cardList.addItem(card)
+            const card = createCard(cardData);
+            cardList.addItem(card);
+            this.close();
         })
         .catch(error => console.log(`Произошла ошибка: ${error}`))
-        .finally(() => {
-            this.renderLoading(false);
-            this.close();
-        });
+        .finally(() => this.renderLoading(false));
 
 }, cardValidation);
 cardPopup.setEventListeners();
