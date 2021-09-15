@@ -51,7 +51,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 
 const cardValidation = new FormValidator(formConfig, cardForm);
 const profileValidation = new FormValidator(formConfig, profileForm);
-const avatarValidation = new FormValidator(formConfig, avatarForm)
+const avatarValidation = new FormValidator(formConfig, avatarForm);
 
 profileValidation.enableValidation();
 cardValidation.enableValidation();
@@ -65,7 +65,7 @@ const confirmationPopup = new PopupConfirmation(confirmationPopupSelector, funct
         })
         .catch(error => console.log(`Произошла ошибка: ${error}`));
 })
-confirmationPopup.setEventListeners()
+confirmationPopup.setEventListeners();
 
 const fullImagePopup = new PopupWithImage(fullImagePopupSelector);
 fullImagePopup.setEventListeners();
@@ -82,7 +82,7 @@ const avatarPopup = new PopupWithForm(avatarPopupSelector, function (avatarData)
 }, avatarValidation);
 avatarPopup.setEventListeners();
 
-avatarPopupOpenButton.addEventListener('click', () => avatarPopup.open())
+avatarPopupOpenButton.addEventListener('click', () => avatarPopup.open());
 
 const profilePopup = new PopupWithForm(profilePopupSelector, function (profileData) {
     this.renderLoading(true);

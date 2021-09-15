@@ -1,6 +1,9 @@
 # Проект: Галерея
 
->  Этот репозиторий содержит проект для отработки навыков программирования, взаимодействия с DOM. Сервис включает в себя галерею изображений с функциями: редактирование личной информации и изображения профиля, загрузка и удаление изображений в галерею, система лайков, валидация полей ввода. Сайт свёрстан на основе макета в figma методом Mobile First.
+>  Сервис включает в себя галерею изображений с функциями: редактирование личной информации и изображения профиля, загрузка и удаление изображений в галерею, система лайков, валидация полей ввода. Сайт свёрстан на основе макета в figma методом Mobile First.
+
+>  [Ссылка на проект](https://olimpieva.github.io/mesto)
+
 
 СТРУКТУРА
 ------------
@@ -32,14 +35,15 @@
 
 Ничего. Это идеально.
 
-
 >  [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)  
 
->  [Ссылка на проект](https://olimpieva.github.io/mesto)
 
 # Project: Gallery
 
 > This repository contains a small training project to practicing programming skills and interacting with DOM. The service includes a little image gallery with the following functions: editing avatar/personal information ability, Uploading/removing images in gallery, displaying images in the original size, likes, form validation  . The site is compiled based on the layout in figma using the Mobile First method.
+
+>  [Link to project](https://olimpieva.github.io/mesto)
+
 
 STRUCTURE
 ------------
@@ -69,9 +73,7 @@ STACK
 WHAT'S NEXT
 -----------
 
-Nothing. It's perfect
+Nothing. It's perfect 
 
 
->  [Link to layout in Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)  
-
->  [Link to project](https://olimpieva.github.io/mesto)
+>  [Link to layout in Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1) 
